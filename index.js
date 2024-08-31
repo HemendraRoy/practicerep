@@ -1,8 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
 let submission=document.getElementById('submit');
 submission.addEventListener('click',getdata);
-const API_KEY = "AIzaSyCEe6wmdneDr35xKfxsAacYrVuQzERdjjE"
-const ai=new GoogleGenerativeAI(process.env.API_KEY)
+const ai=new GoogleGenerativeAI("AIzaSyCEe6wmdneDr35xKfxsAacYrVuQzERdjjE")
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
