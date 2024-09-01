@@ -1,21 +1,17 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
+const ai=new GoogleGenerativeAI(process.env.API_KEY);
 let submission=document.getElementById('submit');
 submission.addEventListener('click',getdata);
-const ai=new GoogleGenerativeAI("AIzaSyCEe6wmdneDr35xKfxsAacYrVuQzERdjjE");
-const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 
-function getdata(){
+async function getdata(){
+	const model = ai.getGenerativeModel({ model: "gemini-pro" });
 	let pretext=document.getElementById('hobbies');
-	let keywords=pretext.split(',');
 	let text="Show me list of career options if my interests are in ";
-	for(str in keywords){
-		text+=str;
-		text+=', ';
-	}
-	
+	text+=pretext;
 	const res=await model.generateContent(text);
-	let fin=res.response.text();
+	let fin1=await res.response;
+	let fin=fin1.text();
 	console.log(fin);
 	document.getElementById('options').innerHTML=fin;
 }
