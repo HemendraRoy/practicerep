@@ -1,17 +1,1 @@
-body{
-	background-image: linear-gradient(#ff00e6, #ff004c);
-	display: flex;
-	align-items: center;
-}
 
-#maindiv{
-	background-color: rgba(255,255,255,0.9);
-	border-radius: 8px;
-	height: 100vh;
-	width: 100vw;
-}
-
-#heading{
-	padding: 4vh;
-	font-size: 5vh;
-}
