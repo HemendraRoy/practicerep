@@ -1,9 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
 let submission=document.getElementById('submit');
 submission.addEventListener('click',getdata);
-const ai=new GoogleGenerativeAI("AIzaSyCEe6wmdneDr35xKfxsAacYrVuQzERdjjE")
-
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+const ai=new GoogleGenerativeAI("AIzaSyCEe6wmdneDr35xKfxsAacYrVuQzERdjjE");
+const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 
 function getdata(){
@@ -16,6 +15,7 @@ function getdata(){
 	}
 	
 	const res=await model.generateContent(text);
-	let fin=res.response().text();
+	let fin=res.response.text();
+	console.log(fin);
 	document.getElementById('options').innerHTML=fin;
 }
